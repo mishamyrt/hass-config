@@ -1,0 +1,10 @@
+- platform: flux_led
+  devices:
+    192.168.31.114:
+      name: desk_lamp
+      mode: 'rgb'
+- platform: group
+  name: Desk
+  entities:
+    - light.desk_lamp
+    - light.desk_backlight

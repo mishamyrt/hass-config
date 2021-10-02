@@ -1,0 +1,25 @@
+- platform: flux_led
+  devices:
+    192.168.31.113:
+      name: desk_lamp
+      mode: 'rgb'
+    192.168.31.230:
+      name: chandelier1
+      mode: 'rgb'
+    192.168.31.53:
+      name: chandelier2
+      mode: 'rgb'
+    192.168.31.200:
+      name: chandelier3
+      mode: 'rgb'
+- platform: group
+  name: Chandelier
+  entities:
+    - light.chandelier1
+    - light.chandelier2
+    - light.chandelier3
+- platform: group
+  name: Desk
+  entities:
+    - light.desk_lamp
+    - light.yeelightledlightstrip1s_2805
