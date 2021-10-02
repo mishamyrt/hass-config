@@ -1,4 +1,4 @@
-download:
-	scp -r hass:config/*.yaml ./remote
+fetch:
+	scp -r 'hass:config/*.yaml' remote-config
 deploy:
-	scp -r ./dist/* hass:config/
+	scp -r ./config/* hass:config/
