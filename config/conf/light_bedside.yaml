@@ -1,0 +1,27 @@
+light:
+  - platform: flux_led
+    devices:
+      192.168.31.200:
+        name: bedside_south
+        mode: 'rgb'
+      192.168.31.53:
+        name: bedside_north
+        mode: 'rgb'
+
+  - platform: group
+    name: bedside
+    entities:
+      - light.bedside_north
+      - light.bedside_south
+
+homeassistant:
+  customize:
+    light.bedside:
+      icon: mdi:bed
+      friendly_name: Спальня
+    light.bedside_north:
+      icon: mdi:globe-light
+      friendly_name: Спальня - Север
+    light.bedside_south:
+      icon: mdi:globe-light
+      friendly_name: Спальня - Юг

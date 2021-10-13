@@ -1,0 +1,125 @@
+light:
+  - platform: flux_led
+    devices:
+      192.168.31.114:
+        name: desk_lamp
+        mode: 'rgb'
+  - platform: group
+    name: desk
+    entities:
+      - light.desk_lamp
+      # Desk backlight configured via UI
+      - light.desk_backlight
+
+scene:
+  - name: Desk Hulk Smash
+    entities:
+      light.desk_backlight:
+        brightness: 255
+        rgb_color:
+        - 191
+        - 0
+        - 255
+        state: 'on'
+      light.desk_lamp:
+        brightness: 255
+        rgb_color:
+        - 0
+        - 255
+        - 21
+        state: 'on'
+  - name: Desk Lava
+    entities:
+      light.desk_backlight:
+        brightness: 255
+        rgb_color:
+        - 255
+        - 216
+        - 0
+        state: 'on'
+      light.desk_lamp:
+        brightness: 255
+        rgb_color:
+          - 255
+          - 0
+          - 20
+        state: 'on'
+    icon: mdi:fire
+  - name: Desk Carrot
+    entities:
+      light.desk_backlight:
+        brightness: 255
+        rgb_color:
+        - 255
+        - 84
+        - 0
+        state: 'on'
+      light.desk_lamp:
+        brightness: 255
+        rgb_color:
+        - 255
+        - 171
+        - 32
+        state: 'on'
+    icon: mdi:carrot
+  - name: Desk Ice Cold
+    entities:
+      light.desk_backlight:
+        brightness: 255
+        rgb_color:
+        - 0
+        - 29
+        - 255
+        state: 'on'
+      light.desk_lamp:
+        brightness: 255
+        rgb_color:
+        - 0
+        - 151
+        - 255
+        state: 'on'
+    icon: mdi:weather-snowy
+  - name: Desk Ice Fire
+    entities:
+      light.desk_backlight:
+        brightness: 255
+        rgb_color:
+        - 255
+        - 0
+        - 89
+        state: 'on'
+      light.desk_lamp:
+        brightness: 255
+        rgb_color:
+        - 0
+        - 0
+        - 255
+        state: 'on'
+  - name: Desk Neon
+    entities:
+      light.desk_backlight:
+        brightness: 255
+        rgb_color:
+        - 0
+        - 255
+        - 0
+        state: 'on'
+      light.desk_lamp:
+        brightness: 255
+        rgb_color:
+        - 62
+        - 0
+        - 255
+        state: 'on'
+
+homeassistant:
+  customize:
+    light.desk:
+      icon: mdi:desk
+      friendly_name: Стол
+    light.desk_backlight:
+      icon: mdi:led-strip-variant
+      friendly_name: Стол - Лента
+    light.desk_lamp:
+      icon: mdi:desk-lamp
+      friendly_name: Стол - Лампа

@@ -1,0 +1,23 @@
+automation:
+  - id: white_cube_slide
+    mode: single
+    trigger:
+      - platform: state
+        entity_id: sensor.white_cube_action
+        to: 'slide'
+    action:
+      - service: light.turn_on
+        target:
+          entity_id:
+            - light.bedside
+  - id: white_cube_shake
+    mode: single
+    trigger:
+      - platform: state
+        entity_id: sensor.white_cube_action
+        to: 'shake'
+    action:
+      - service: light.turn_off
+        target:
+          entity_id:
+            - light.bedside
