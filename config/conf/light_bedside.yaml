@@ -25,3 +25,101 @@ homeassistant:
     light.bedside_south:
       icon: mdi:globe-light
       friendly_name: Спальня - Юг
+
+scene:
+  - name: Bedside FTP
+    entities:
+      light.bedside_south:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 163
+        - 0
+        - 16
+      light.bedside_north:
+        state: 'on'
+        brightness: 135
+        rgb_color:
+        - 0
+        - 34
+        - 132
+  - name: Bedside Rastafari
+    entities:
+      light.bedside_south:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 163
+        - 61
+        - 0
+      light.bedside_north:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 0
+        - 132
+        - 12
+  - name: Bedside Night
+    entities:
+      light.bedside_south:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 52
+        - 6
+        - 0
+      light.bedside_north:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 52
+        - 6
+        - 0
+  - name: Bedside Ukraine
+    entities:
+      light.bedside_south:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 207
+        - 125
+        - 0
+      light.bedside_north:  
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 0
+        - 87
+        - 116
+  - name: Bedside Carrot
+    entities:
+      light.bedside_south:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 0
+        - 128
+        - 14
+      light.bedside_north:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+        - 116
+        - 21
+        - 0
+  - name: Bedside Peach
+    entities:
+      light.bedside_south:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+          - 116
+          - 20
+          - 0
+      light.bedside_north:
+        state: 'on'
+        brightness: 165
+        rgb_color:
+          - 128
+          - 13
+          - 13
