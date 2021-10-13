@@ -1,0 +1,11 @@
+binary_sensor:
+  - platform: ping
+    name: Myrt Server
+    host: myrt.co
+    count: 2
+    scan_interval: 30
+  - platform: ping
+    host: 192.168.31.22
+    name: Pi Speaker
+    count: 2
+    scan_interval: 30
