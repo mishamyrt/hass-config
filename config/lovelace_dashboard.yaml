@@ -1,0 +1,113 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    cards:
+      - type: vertical-stack
+        title: Гостиная
+        cards:
+          - type: entities
+            entities:
+              - light.desk_backlight
+              - light.desk_lamp
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c138f7ed5f_temperature
+                name: Температура
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c138f7ed5f_humidity
+                name: Влажность
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+      - type: vertical-stack
+        title: Спальня
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                entities:
+                  - entity: light.bedside_south
+                    name: Юг
+                  - entity: light.bedside_north
+                    name: Север
+                state_color: false
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c1382438f8_temperature
+                name: Температура
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c1382438f8_humidity
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+                name: Влажность
+      - type: vertical-stack
+        title: Интернет
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.speedtest_upload
+                hours_to_show: 24
+                name: Загрузка
+                points_per_hour: 1
+                line_color: var(--accent-color)
+                line_width: 3
+                unit: Мбит/с
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.speedtest_download
+                hours_to_show: 24
+                name: Скачивание
+                points_per_hour: 1
+                line_color: var(--accent-color)
+                line_width: 3
+                unit: Мбит/с
+          - type: entity
+            entity: sensor.speedtest_ping
+            unit: мс
+            name: Пинг
+      - type: weather-forecast
+        entity: weather.home
+        name: Самара
+        secondary_info_attribute: humidity
+        show_forecast: true
+      - type: vertical-stack
+        title: Заряд
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.oneplus_8t_battery_level
+                name: OnePlus 8T
+              - entity: sensor.macbook_air_misha_internal_battery_level
+                name: MacBook Air
+              - entity: sensor.mishas_ipad_battery_level
+                name: iPad Air
+          - type: entities
+            entities:
+              - entity: sensor.a4c1382438f8_battery
+                name: Спальня - Метеосенсор
+              - entity: sensor.a4c138f7ed5f_battery
+                name: Гостиная - Метеосенсор
+              - entity: sensor.pink_cube_battery
+                name: Гостиная - Кубик
+              - entity: sensor.white_cube_battery
+                name: Гостиная - Спальня
