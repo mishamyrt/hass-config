@@ -1,0 +1,11 @@
+sensor:
+  - platform: systemmonitor
+    resources:
+      - type: load_1m
+      - type: load_5m
+      - type: load_15m
+      - type: disk_use_percent
+        arg: /
+      - type: processor_temperature
+      - type: memory_free
+      
