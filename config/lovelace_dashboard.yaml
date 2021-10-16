@@ -1,33 +1,8 @@
-title: Home
+title: Дом
 views:
   - path: default_view
-    title: Home
+    title: Дом
     cards:
-      - type: vertical-stack
-        title: Гостиная
-        cards:
-          - type: entities
-            entities:
-              - light.desk_backlight
-              - light.desk_lamp
-          - type: horizontal-stack
-            cards:
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.a4c138f7ed5f_temperature
-                name: Температура
-                hours_to_show: 24
-                points_per_hour: 0.5
-                line_color: var(--accent-color)
-                line_width: 3
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.a4c138f7ed5f_humidity
-                name: Влажность
-                hours_to_show: 24
-                points_per_hour: 0.5
-                line_color: var(--accent-color)
-                line_width: 3
       - type: vertical-stack
         title: Спальня
         cards:
@@ -59,7 +34,64 @@ views:
                 line_width: 3
                 name: Влажность
       - type: vertical-stack
-        title: Интернет
+        title: Гостиная
+        cards:
+          - type: entities
+            entities:
+              - entity: light.desk_backlight
+              - entity: light.desk_lamp
+              - entity: light.tv_backlight
+                name: Телевизор - Подсветка
+                icon: mdi:television-ambient-light
+              - entity: switch.mi_smart_plug_wifi
+                icon: mdi:air-humidifier
+                name: Увлажнитель
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c138f7ed5f_temperature
+                name: Температура
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c138f7ed5f_humidity
+                name: Влажность
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+          - type: button
+            tap_action:
+              action: toggle
+            entity: input_boolean.living_room_automoist
+            icon: mdi:waves-arrow-up
+            name: Моё увлажнение
+            icon_height: 32px
+            show_state: true
+      - type: vertical-stack
+        title: Устройства
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.oneplus_8t_battery_level
+                name: OnePlus 8T
+              - entity: sensor.macbook_air_misha_internal_battery_level
+                name: MacBook Air
+              - entity: sensor.mishas_ipad_battery_level
+                name: iPad Air
+          - type: glance
+            entities:
+              - entity: binary_sensor.myrt_server
+                name: Myrt Сервер
+              - entity: binary_sensor.pi_speaker
+                name: Pi Колонка
+                icon: mdi:raspberry-pi
+      - type: vertical-stack
+        title: Система
         cards:
           - type: horizontal-stack
             cards:
@@ -81,33 +113,54 @@ views:
                 line_color: var(--accent-color)
                 line_width: 3
                 unit: Мбит/с
-          - type: entity
-            entity: sensor.speedtest_ping
-            unit: мс
-            name: Пинг
-      - type: weather-forecast
-        entity: weather.home
-        name: Самара
-        secondary_info_attribute: humidity
-        show_forecast: true
+          - type: gauge
+            entity: sensor.processor_temperature
+            max: 90
+            name: Температура ЦПУ
+            height: 40
+            min: 25
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.load_1m
+                hours_to_show: 4
+                points_per_hour: 5
+                height: 170
+                line_width: 3
+                show:
+                  name: false
+                  icon: false
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.load_5m
+                hours_to_show: 4
+                points_per_hour: 5
+                height: 170
+                line_width: 3
+                show:
+                  name: false
+                  icon: false
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.load_15m
+                hours_to_show: 4
+                points_per_hour: 5
+                height: 170
+                line_width: 3
+                show:
+                  name: false
+                  icon: false
+                  legend: false
+          - type: glance
+            entities:
+              - entity: sensor.disk_use_percent
+                name: Диск
+              - entity: sensor.memory_free
+                name: Свободная ОЗУ
       - type: vertical-stack
-        title: Заряд
+        title: Самара
         cards:
-          - type: entities
-            entities:
-              - entity: sensor.oneplus_8t_battery_level
-                name: OnePlus 8T
-              - entity: sensor.macbook_air_misha_internal_battery_level
-                name: MacBook Air
-              - entity: sensor.mishas_ipad_battery_level
-                name: iPad Air
-          - type: entities
-            entities:
-              - entity: sensor.a4c1382438f8_battery
-                name: Спальня - Метеосенсор
-              - entity: sensor.a4c138f7ed5f_battery
-                name: Гостиная - Метеосенсор
-              - entity: sensor.pink_cube_battery
-                name: Гостиная - Кубик
-              - entity: sensor.white_cube_battery
-                name: Гостиная - Спальня
+          - type: weather-forecast
+            entity: weather.home
+            name: Самара
