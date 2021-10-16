@@ -14,18 +14,6 @@ light:
       - light.bedside_north
       - light.bedside_south
 
-homeassistant:
-  customize:
-    light.bedside:
-      icon: mdi:bed
-      friendly_name: Спальня
-    light.bedside_north:
-      icon: mdi:globe-light
-      friendly_name: Спальня - Север
-    light.bedside_south:
-      icon: mdi:globe-light
-      friendly_name: Спальня - Юг
-
 scene:
   - name: Bedside FTP
     entities:

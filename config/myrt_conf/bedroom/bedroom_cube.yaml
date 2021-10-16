@@ -20,6 +20,7 @@ automation:
         to: 'shake'
     action:
       - service: light.turn_off
+        entity_id: light.bedside
   - alias: White Cube Rotate
     mode: single
     trigger:

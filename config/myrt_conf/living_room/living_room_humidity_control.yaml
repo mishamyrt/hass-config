@@ -5,14 +5,13 @@ input_boolean:
 
 automation:
   - alias: Living Room humidity low
-    mode: single
     trigger:
       - platform: state
         entity_id: sensor.a4c138f7ed5f_humidity
     condition:
     - condition: numeric_state
       entity_id: sensor.a4c138f7ed5f_humidity
-      below: 32
+      below: 31
     - condition: state
       entity_id: input_boolean.living_room_automoist
       state: 'on'
@@ -21,18 +20,17 @@ automation:
       target:
         entity_id: switch.mi_smart_plug_wifi
   - alias: Living Room humidity high
-    mode: single
     trigger:
       - platform: state
         entity_id: sensor.a4c138f7ed5f_humidity
     condition:
     - condition: numeric_state
       entity_id: sensor.a4c138f7ed5f_humidity
-      above: 39
+      above: 35
     - condition: state
       entity_id: input_boolean.living_room_automoist
       state: 'on'
     action:
-      service: switch.turn_on
+      service: switch.turn_off
       target:
         entity_id: switch.mi_smart_plug_wifi

@@ -118,8 +118,8 @@ homeassistant:
       icon: mdi:desk
       friendly_name: Стол
     light.desk_backlight:
-      icon: mdi:led-strip-variant
-      friendly_name: Стол - Лента
+      icon: mdi:television-ambient-light
+      friendly_name: Стол - Подсветка
     light.desk_lamp:
       icon: mdi:desk-lamp
       friendly_name: Стол - Лампа
