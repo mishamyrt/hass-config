@@ -1,0 +1,4 @@
+no_ip:
+  domain: subdomain.domain.com
+  username: YOUR_USERNAME
+  password: YOUR_PASSWORD
