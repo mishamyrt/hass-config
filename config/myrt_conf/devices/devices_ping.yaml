@@ -1,3 +1,4 @@
+---
 binary_sensor:
   - platform: ping
     name: Myrt Server

@@ -210,4 +210,3 @@ views:
             - attribute: cleaning_time
               unit: minutes
               subtitle: Cleaning time
-
