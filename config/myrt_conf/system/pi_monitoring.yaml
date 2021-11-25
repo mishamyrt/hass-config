@@ -1,3 +1,4 @@
+---
 sensor:
   - platform: systemmonitor
     resources:
@@ -8,4 +9,3 @@ sensor:
         arg: /
       - type: processor_temperature
       - type: memory_free
-      

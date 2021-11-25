@@ -1,1 +1,4 @@
 remote-config
+venv/
+config/myrt_conf/system/assistant.yaml
+config/myrt_conf/system/namecheap.yaml

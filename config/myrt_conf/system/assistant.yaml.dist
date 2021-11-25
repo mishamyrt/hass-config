@@ -1,0 +1,6 @@
+---
+google_assistant:
+  project_id:
+  api_key:
+  exposed_domains:
+    - light
