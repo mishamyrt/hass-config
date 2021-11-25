@@ -1,51 +1,25 @@
+---
 title: Дом
 views:
   - path: default_view
     title: Дом
+    theme: ''
+    badges: []
     cards:
-      - type: vertical-stack
-        title: Спальня
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: entities
-                entities:
-                  - entity: light.bedside_south
-                    name: Юг
-                  - entity: light.bedside_north
-                    name: Север
-                state_color: false
-          - type: horizontal-stack
-            cards:
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.a4c1382438f8_temperature
-                name: Температура
-                hours_to_show: 24
-                points_per_hour: 0.5
-                line_color: var(--accent-color)
-                line_width: 3
-              - type: custom:mini-graph-card
-                entities:
-                  - sensor.a4c1382438f8_humidity
-                hours_to_show: 24
-                points_per_hour: 0.5
-                line_color: var(--accent-color)
-                line_width: 3
-                name: Влажность
       - type: vertical-stack
         title: Гостиная
         cards:
           - type: entities
             entities:
+              - entity: light.screen_bar_back
               - entity: light.desk_backlight
-              - entity: light.desk_lamp
-              - entity: light.tv_backlight
-                name: Телевизор - Подсветка
-                icon: mdi:television-ambient-light
-              - entity: switch.mi_smart_plug_wifi
-                icon: mdi:air-humidifier
+              - entity: light.screen_bar_front
+              - entity: input_select.living_room_scene
+                name: Сцена
+                icon: mdi:desk
+              - entity: switch.mi_smart_plug_wifi_2
                 name: Увлажнитель
+                icon: mdi:air-humidifier
           - type: horizontal-stack
             cards:
               - type: custom:mini-graph-card
@@ -72,6 +46,48 @@ views:
             name: Моё увлажнение
             icon_height: 32px
             show_state: true
+      - type: vertical-stack
+        title: Спальня
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: entities
+                entities:
+                  - entity: light.bedside_south
+                    name: Юг
+                  - entity: light.bedside_north
+                    name: Север
+                  - entity: input_select.bedroom_scene
+                    icon: mdi:bed-outline
+                    name: Сцена
+                state_color: false
+      - type: vertical-stack
+        title: Ванная
+        cards:
+          - type: entities
+            entities:
+              - entity: light.bathroom_north
+                name: Север
+              - entity: light.bathroom_south
+                name: Юг
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c1382438f8_temperature
+                name: Температура
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+              - type: custom:mini-graph-card
+                entities:
+                  - sensor.a4c1382438f8_humidity
+                hours_to_show: 24
+                points_per_hour: 0.5
+                line_color: var(--accent-color)
+                line_width: 3
+                name: Влажность
       - type: vertical-stack
         title: Устройства
         cards:
@@ -164,3 +180,34 @@ views:
           - type: weather-forecast
             entity: weather.home
             name: Самара
+      - type: custom:vacuum-card
+        entity: vacuum.dreame_z10_pro
+        style: |
+          ha-card {
+              --primary-color: var(--ha-card-background);
+              --primary-background-color: var(--card-background-color);
+          }
+
+          .toolbar ha-icon-button {
+              color: var(--paper-item-icon-active-color) !important;
+          }
+          .stats {
+            border-top: 1px solid var(--background-color) !important;
+            border-bottom: 1px solid var(--background-color) !important;
+          }
+        image: default
+        compact_view: true
+        show_toolbar: true
+        stats:
+          default:
+            - attribute: filter_filter_life_level
+              unit: '%'
+              subtitle: Фильтр
+          cleaning:
+            - attribute: cleaned_area
+              unit: m2
+              subtitle: Cleaning area
+            - attribute: cleaning_time
+              unit: minutes
+              subtitle: Cleaning time
+
