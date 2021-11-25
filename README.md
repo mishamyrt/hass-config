@@ -22,3 +22,17 @@ The hub for Zigbee and bluetooth devices is Xiaomi Gateway 3.
 * [Mosquitto broker](https://github.com/home-assistant/addons/tree/master/mosquitto).
 * [Zigbee2mqtt](https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt).
 * [XiaomiGateway3](https://github.com/AlexxIT/XiaomiGateway3) — configured in UI to work with Zigbee2mqtt. Also integrates bluetooth devices.
+
+## Developing
+
+First of all, configure dev environment:
+
+```sh
+make configure
+```
+
+Then run virtual environment:
+
+```sh
+source venv/bin/activate
+```
