@@ -1,0 +1,33 @@
+---
+automation:
+  - id: desk_motion_on
+    alias: Desk Vibration - On place
+    trigger:
+      - entity_id: sensor.desk_vibration_action
+        platform: state
+        to: vibration
+        attribute: action
+    action:
+      - entity_id: light.desk
+        service: light.turn_on
+
+  - id: desk_motion_off
+    alias: Desk Vibration - Away
+    trigger:
+      - platform: state
+        for:
+          minutes: 20
+        entity_id:
+          - sensor.desk_vibration_action
+        to: null
+        attribute: action
+      - platform: state
+        for:
+          minutes: 20
+        entity_id:
+          - sensor.desk_vibration_action
+        to: ''
+        attribute: action
+    action:
+      - entity_id: light.desk
+        service: light.turn_off

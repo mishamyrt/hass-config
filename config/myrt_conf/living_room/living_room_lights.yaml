@@ -1,116 +1,134 @@
+---
 light:
-  - platform: flux_led
-    devices:
-      192.168.31.114:
-        name: desk_lamp
-        mode: 'rgb'
   - platform: group
     name: desk
     entities:
-      - light.desk_lamp
-      # Desk backlight configured via UI
+      - light.screen_bar_back
+      - light.screen_bar_front
       - light.desk_backlight
 
 scene:
   - name: Desk Hulk Smash
     entities:
       light.desk_backlight:
-        brightness: 255
+        brightness: 221
         rgb_color:
-        - 191
-        - 0
-        - 255
+          - 0
+          - 255
+          - 16
         state: 'on'
-      light.desk_lamp:
-        brightness: 255
-        rgb_color:
-        - 0
-        - 255
-        - 21
-        state: 'on'
-  - name: Desk Lava
-    entities:
-      light.desk_backlight:
-        brightness: 255
-        rgb_color:
-        - 255
-        - 216
-        - 0
-        state: 'on'
-      light.desk_lamp:
+      light.screen_bar_back:
         brightness: 255
         rgb_color:
           - 255
           - 0
-          - 20
+          - 255
+        state: 'on'
+  - name: Desk Lava
+    entities:
+      light.desk_backlight:
+        brightness: 168
+        rgb_color:
+          - 255
+          - 0
+          - 29
+        state: 'on'
+      light.screen_bar_back:
+        brightness: 255
+        rgb_color:
+          - 255
+          - 172
+          - 0
         state: 'on'
     icon: mdi:fire
   - name: Desk Carrot
     entities:
       light.desk_backlight:
-        brightness: 255
+        brightness: 170
         rgb_color:
-        - 255
-        - 84
-        - 0
+          - 255
+          - 172
+          - 145
         state: 'on'
-      light.desk_lamp:
+      light.screen_bar_back:
         brightness: 255
         rgb_color:
-        - 255
-        - 171
-        - 32
+          - 96
+          - 255
+          - 135
         state: 'on'
     icon: mdi:carrot
-  - name: Desk Ice Cold
+  - name: Desk Magentish
     entities:
       light.desk_backlight:
+        brightness: 175
+        rgb_color:
+          - 255
+          - 0
+          - 255
+        state: 'on'
+      light.screen_bar_back:
         brightness: 255
         rgb_color:
-        - 0
-        - 29
-        - 255
+          - 255
+          - 96
+          - 135
         state: 'on'
-      light.desk_lamp:
-        brightness: 255
-        rgb_color:
-        - 0
-        - 151
-        - 255
-        state: 'on'
-    icon: mdi:weather-snowy
+    icon: mdi:flower
   - name: Desk Ice Fire
     entities:
       light.desk_backlight:
-        brightness: 255
+        brightness: 200
         rgb_color:
-        - 255
-        - 0
-        - 89
+          - 0
+          - 63
+          - 255
         state: 'on'
-      light.desk_lamp:
+      light.screen_bar_back:
         brightness: 255
         rgb_color:
-        - 0
-        - 0
-        - 255
+          - 255
+          - 0
+          - 64
         state: 'on'
   - name: Desk Neon
     entities:
       light.desk_backlight:
         brightness: 255
         rgb_color:
-        - 0
-        - 255
-        - 0
+          - 0
+          - 0
+          - 255
         state: 'on'
-      light.desk_lamp:
+      light.screen_bar_back:
         brightness: 255
         rgb_color:
-        - 62
-        - 0
-        - 255
+          - 0
+          - 255
+          - 45
         state: 'on'
+
+input_select:
+  living_room_scene:
+    name: Living Room scene
+    icon: mdi:sofa-outline
+    options:
+      - desk_hulk_smash
+      - desk_lava
+      - desk_carrot
+      - desk_magentish
+      - desk_ice_fire
+      - desk_neon
+
+automation:
+  - alias: Living Room scene selector
+    trigger:
+      platform: state
+      entity_id: input_select.living_room_scene
+    action:
+      service: scene.turn_on
+      data_template:
+        entity_id: scene.{{trigger.to_state.state}}
 
 homeassistant:
   customize:
@@ -118,8 +136,11 @@ homeassistant:
       icon: mdi:desk
       friendly_name: Стол
     light.desk_backlight:
+      icon: mdi:led-strip-variant
+      friendly_name: Стол - Нижняя подсветка
+    light.screen_bar_back:
       icon: mdi:television-ambient-light
-      friendly_name: Стол - Подсветка
-    light.desk_lamp:
-      icon: mdi:desk-lamp
-      friendly_name: Стол - Лампа
+      friendly_name: Стол - Верх экрана
+    light.screen_bar_front:
+      icon: mdi:texture-box
+      friendly_name: Стол - Рабочая поверхность

@@ -1,25 +1,24 @@
+---
 automation:
-  - id: cube_pink_slide
-    alias: 'Слайд розового куба'
+  - alias: White Cube - Slide to light
     mode: single
     trigger:
       platform: state
-      entity_id: sensor.cube_pink_action
+      entity_id: sensor.cube_white_action
       to: slide
     action:
       service: light.turn_on
       target:
         entity_id:
           - light.desk
-  - id: cube_pink_rotate
-    alias: 'Поворот розового куба'
+  - alias: White Cube - Rotate to dim
     mode: single
     trigger:
       - platform: state
-        entity_id: sensor.cube_pink_action
+        entity_id: sensor.cube_white_action
         to: rotate_left
       - platform: state
-        entity_id: sensor.cube_pink_action
+        entity_id: sensor.cube_white_action
         to: rotate_right
     action:
       - service: light.turn_on
@@ -29,71 +28,66 @@ automation:
             {{ (state_attr('light.desk_backlight', 'brightness') | int) +
             (trigger.to_state.attributes.angle | int) }}
       - service: light.turn_on
-        entity_id: light.desk_lamp
+        entity_id: light.screen_bar_back
         data:
           brightness: >-
-            {{ (state_attr('light.desk_lamp', 'brightness') | int) +
+            {{ (state_attr('light.screen_bar_back', 'brightness') | int) +
             (trigger.to_state.attributes.angle | int) }}
-  - id: cube_pink_shake
-    alias: Тряска розового куба
+  - alias: White Cube - Shake to dark
     mode: single
     trigger:
       platform: state
-      entity_id: sensor.cube_pink_action
+      entity_id: sensor.cube_white_action
       to: shake
     action:
       service: light.turn_off
       target:
         entity_id: light.desk
-  - alias: Pink Cube Side 1
+  - alias: White Cube Side 1
     mode: single
     trigger:
       platform: state
-      entity_id: sensor.cube_pink_action_side
+      entity_id: sensor.cube_white_action_side
+      to: '0'
+    action:
+      scene: scene.desk_magentish
+  - alias: White Cube Side 2
+    mode: single
+    trigger:
+      platform: state
+      entity_id: sensor.cube_white_action_side
       to: '1'
     action:
-      scene: scene.desk_ice_cold
-  - alias: Pink Cube Side 2
+      scene: scene.desk_ice_fire
+  - alias: White Cube Side 3
     mode: single
     trigger:
       platform: state
-      entity_id: sensor.cube_pink_action_side
+      entity_id: sensor.cube_white_action_side
       to: '2'
     action:
-      scene: scene.desk_ice_fire
-  - alias: Pink Cube Side 3
+      scene: scene.desk_neon
+  - alias: White Cube Side 4
     mode: single
     trigger:
       platform: state
-      entity_id: sensor.cube_pink_action_side
+      entity_id: sensor.cube_white_action_side
       to: '3'
     action:
-      scene: scene.desk_neon
-  - alias: Pink Cube Side 4
+      scene: scene.desk_lava
+  - alias: White Cube Side 5
     mode: single
     trigger:
       platform: state
-      entity_id: sensor.cube_pink_action_side
+      entity_id: sensor.cube_white_action_side
       to: '4'
     action:
-      scene: scene.desk_lava
-  - alias: Pink Cube Side 5
+      scene: scene.desk_hulk_smash
+  - alias: White Cube Side 6
     mode: single
     trigger:
       platform: state
-      entity_id: sensor.cube_pink_action_side
+      entity_id: sensor.cube_white_action_side
       to: '5'
     action:
-      scene: scene.desk_hulk_smash
-  - alias: Pink Cube Side 6
-    mode: single
-    trigger:
-      platform: state
-      entity_id: sensor.cube_pink_action_side
-      to: '6'
-    action:
       scene: scene.desk_carrot
-
-
-
-

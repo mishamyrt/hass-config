@@ -1,3 +1,4 @@
+---
 input_boolean:
   living_room_automoist:
     name: Гостиная - поддержание влажности
@@ -9,28 +10,28 @@ automation:
       - platform: state
         entity_id: sensor.a4c138f7ed5f_humidity
     condition:
-    - condition: numeric_state
-      entity_id: sensor.a4c138f7ed5f_humidity
-      below: 31
-    - condition: state
-      entity_id: input_boolean.living_room_automoist
-      state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.a4c138f7ed5f_humidity
+        below: 31
+      - condition: state
+        entity_id: input_boolean.living_room_automoist
+        state: 'on'
     action:
       service: switch.turn_on
       target:
-        entity_id: switch.mi_smart_plug_wifi
+        entity_id: switch.mi_smart_plug_wifi_2
   - alias: Living Room humidity high
     trigger:
       - platform: state
         entity_id: sensor.a4c138f7ed5f_humidity
     condition:
-    - condition: numeric_state
-      entity_id: sensor.a4c138f7ed5f_humidity
-      above: 35
-    - condition: state
-      entity_id: input_boolean.living_room_automoist
-      state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.a4c138f7ed5f_humidity
+        above: 35
+      - condition: state
+        entity_id: input_boolean.living_room_automoist
+        state: 'on'
     action:
       service: switch.turn_off
       target:
-        entity_id: switch.mi_smart_plug_wifi
+        entity_id: switch.mi_smart_plug_wifi_2
