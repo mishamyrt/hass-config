@@ -71,8 +71,8 @@ scene:
         brightness: 255
         rgb_color:
           - 255
-          - 96
-          - 135
+          - 168
+          - 0
         state: 'on'
     icon: mdi:flower
   - name: Desk Ice Fire
