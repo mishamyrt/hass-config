@@ -1,0 +1,13 @@
+---
+light:
+  - platform: dohome_rgb
+    entities:
+      kitchen_chandelier_1: '192.168.31.58'
+      kitchen_chandelier_2: '192.168.31.135'
+      kitchen_chandelier_3: '192.168.31.62'
+  - platform: group
+    name: kitchen_chandelier
+    entities:
+      - light.kitchen_chandelier_1
+      - light.kitchen_chandelier_2
+      - light.kitchen_chandelier_3
