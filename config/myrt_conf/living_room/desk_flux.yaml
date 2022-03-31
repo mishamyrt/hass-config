@@ -4,8 +4,8 @@ switch:
     lights:
       - light.screen_bar_front
     name: Desk Flux
-    start_time: "11:00"
-    stop_time: "23:00"
+    start_time: '09:00'
+    stop_time: '21:00'
     mode: mired
     disable_brightness_adjust: true
     transition: 15

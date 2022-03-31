@@ -1,0 +1,37 @@
+---
+input_boolean:
+  bedroom_automoist:
+    name: Спальня - поддержание влажности
+    icon: mdi:waves-arrow-up
+
+automation:
+  - alias: Living Room humidity low
+    trigger:
+      - platform: state
+        entity_id: sensor.a4c1382438f8_humidity
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.a4c1382438f8_humidity
+        below: 40
+      - condition: state
+        entity_id: input_boolean.bedroom_automoist
+        state: 'on'
+    action:
+      service: switch.turn_on
+      target:
+        entity_id: switch.mi_smart_plug_wifi
+  - alias: Living Room humidity high
+    trigger:
+      - platform: state
+        entity_id: sensor.a4c1382438f8_humidity
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.a4c1382438f8_humidity
+        above: 50
+      - condition: state
+        entity_id: input_boolean.bedroom_automoist
+        state: 'on'
+    action:
+      service: switch.turn_off
+      target:
+        entity_id: switch.mi_smart_plug_wifi

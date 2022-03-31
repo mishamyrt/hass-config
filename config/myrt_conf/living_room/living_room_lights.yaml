@@ -1,16 +1,19 @@
 ---
 light:
+  - platform: desk_light
+    entities:
+      desk_strip: '192.168.31.22'
   - platform: group
     name: desk
     entities:
       - light.screen_bar_back
       - light.screen_bar_front
-      - light.desk_backlight
+      - light.desk_strip
 
 scene:
   - name: Desk Hulk Smash
     entities:
-      light.desk_backlight:
+      light.desk_strip:
         brightness: 221
         rgb_color:
           - 0
@@ -26,7 +29,7 @@ scene:
         state: 'on'
   - name: Desk Lava
     entities:
-      light.desk_backlight:
+      light.desk_strip:
         brightness: 168
         rgb_color:
           - 255
@@ -43,7 +46,7 @@ scene:
     icon: mdi:fire
   - name: Desk Carrot
     entities:
-      light.desk_backlight:
+      light.desk_strip:
         brightness: 170
         rgb_color:
           - 255
@@ -60,7 +63,7 @@ scene:
     icon: mdi:carrot
   - name: Desk Magentish
     entities:
-      light.desk_backlight:
+      light.desk_strip:
         brightness: 175
         rgb_color:
           - 255
@@ -77,7 +80,7 @@ scene:
     icon: mdi:flower
   - name: Desk Ice Fire
     entities:
-      light.desk_backlight:
+      light.desk_strip:
         brightness: 200
         rgb_color:
           - 0
@@ -93,7 +96,7 @@ scene:
         state: 'on'
   - name: Desk Neon
     entities:
-      light.desk_backlight:
+      light.desk_strip:
         brightness: 255
         rgb_color:
           - 0
@@ -135,7 +138,7 @@ homeassistant:
     light.desk:
       icon: mdi:desk
       friendly_name: Стол
-    light.desk_backlight:
+    light.desk_strip:
       icon: mdi:led-strip-variant
       friendly_name: Стол - Нижняя подсветка
     light.screen_bar_back:

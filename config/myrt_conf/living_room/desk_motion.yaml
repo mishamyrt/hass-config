@@ -16,14 +16,14 @@ automation:
     trigger:
       - platform: state
         for:
-          minutes: 20
+          minutes: 30
         entity_id:
           - sensor.desk_vibration_action
         to: null
         attribute: action
       - platform: state
         for:
-          minutes: 20
+          minutes: 30
         entity_id:
           - sensor.desk_vibration_action
         to: ''

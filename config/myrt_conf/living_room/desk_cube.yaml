@@ -22,10 +22,10 @@ automation:
         to: rotate_right
     action:
       - service: light.turn_on
-        entity_id: light.desk_backlight
+        entity_id: light.desk_strip
         data:
           brightness: >-
-            {{ (state_attr('light.desk_backlight', 'brightness') | int) +
+            {{ (state_attr('light.desk_strip', 'brightness') | int) +
             (trigger.to_state.attributes.angle | int) }}
       - service: light.turn_on
         entity_id: light.screen_bar_back
