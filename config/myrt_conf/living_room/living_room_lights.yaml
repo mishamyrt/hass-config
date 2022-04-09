@@ -1,42 +1,39 @@
 ---
 light:
-  - platform: desk_light
-    entities:
-      desk_strip: '192.168.31.22'
   - platform: group
     name: desk
     entities:
-      - light.screen_bar_back
-      - light.screen_bar_front
-      - light.desk_strip
+      - light.yeelight_ambilight
+      - light.yeelight_lamp
+      - light.myrt_desk_light
 
 scene:
   - name: Desk Hulk Smash
     entities:
-      light.desk_strip:
+      light.myrt_desk_light:
         brightness: 221
         rgb_color:
+          - 126
           - 0
           - 255
-          - 16
         state: 'on'
-      light.screen_bar_back:
+      light.yeelight_ambilight:
         brightness: 255
         rgb_color:
-          - 255
           - 0
           - 255
+          - 62
         state: 'on'
   - name: Desk Lava
     entities:
-      light.desk_strip:
+      light.myrt_desk_light:
         brightness: 168
         rgb_color:
           - 255
           - 0
-          - 29
+          - 4
         state: 'on'
-      light.screen_bar_back:
+      light.yeelight_ambilight:
         brightness: 255
         rgb_color:
           - 255
@@ -46,14 +43,14 @@ scene:
     icon: mdi:fire
   - name: Desk Carrot
     entities:
-      light.desk_strip:
+      light.myrt_desk_light:
         brightness: 170
         rgb_color:
           - 255
-          - 172
-          - 145
+          - 20
+          - 0
         state: 'on'
-      light.screen_bar_back:
+      light.yeelight_ambilight:
         brightness: 255
         rgb_color:
           - 96
@@ -63,31 +60,31 @@ scene:
     icon: mdi:carrot
   - name: Desk Magentish
     entities:
-      light.desk_strip:
+      light.myrt_desk_light:
         brightness: 175
         rgb_color:
           - 255
           - 0
-          - 255
+          - 26
         state: 'on'
-      light.screen_bar_back:
+      light.yeelight_ambilight:
         brightness: 255
         rgb_color:
           - 255
-          - 168
-          - 0
+          - 1
+          - 191
         state: 'on'
     icon: mdi:flower
   - name: Desk Ice Fire
     entities:
-      light.desk_strip:
+      light.myrt_desk_light:
         brightness: 200
         rgb_color:
           - 0
           - 63
           - 255
         state: 'on'
-      light.screen_bar_back:
+      light.yeelight_ambilight:
         brightness: 255
         rgb_color:
           - 255
@@ -96,14 +93,14 @@ scene:
         state: 'on'
   - name: Desk Neon
     entities:
-      light.desk_strip:
+      light.myrt_desk_light:
         brightness: 255
         rgb_color:
           - 0
           - 0
           - 255
         state: 'on'
-      light.screen_bar_back:
+      light.yeelight_ambilight:
         brightness: 255
         rgb_color:
           - 0
@@ -138,12 +135,12 @@ homeassistant:
     light.desk:
       icon: mdi:desk
       friendly_name: Стол
-    light.desk_strip:
+    light.myrt_desk_light:
       icon: mdi:led-strip-variant
       friendly_name: Стол - Нижняя подсветка
-    light.screen_bar_back:
+    light.yeelight_ambilight:
       icon: mdi:television-ambient-light
       friendly_name: Стол - Верх экрана
-    light.screen_bar_front:
+    light.yeelight_lamp:
       icon: mdi:texture-box
       friendly_name: Стол - Рабочая поверхность
