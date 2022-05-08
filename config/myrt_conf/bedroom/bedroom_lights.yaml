@@ -1,139 +1,139 @@
 ---
-light:
-  - platform: group
-    name: Bedroom
-    entities:
-      - light.bedside
-      - light.bedside_north
-      - light.bedside_south
-  - platform: group
-    name: Bedroom top
-    entities:
-      - light.bedside_north
-      - light.bedside_south
+# light:
+#   - platform: group
+#     name: Bedroom
+#     entities:
+#       - light.bedside
+#       - light.bedside_north
+#       - light.bedside_south
+#   - platform: group
+#     name: Bedroom top
+#     entities:
+#       - light.bedside_north
+#       - light.bedside_south
 
-automation:
-  - alias: Клик на кнопку
-    mode: single
-    trigger:
-      platform: state
-      entity_id: sensor.square_click
-      to: single
-    action:
-      service: light.toggle
-      target:
-        entity_id:
-          - light.bedroom
-  - alias: Двойной клик на кнопку
-    mode: single
-    trigger:
-      platform: state
-      entity_id: sensor.square_click
-      to: double
-    action:
-      scene: scene.bedroom_warm_white
-  - alias: Bedroom scene selector
-    trigger:
-      platform: state
-      entity_id: input_select.bedroom_scene
-    action:
-      service: scene.turn_on
-      data_template:
-        entity_id: scene.{{trigger.to_state.state}}
+# automation:
+#   - alias: Клик на кнопку
+#     mode: single
+#     trigger:
+#       platform: state
+#       entity_id: sensor.square_click
+#       to: single
+#     action:
+#       service: light.toggle
+#       target:
+#         entity_id:
+#           - light.bedroom
+#   - alias: Двойной клик на кнопку
+#     mode: single
+#     trigger:
+#       platform: state
+#       entity_id: sensor.square_click
+#       to: double
+#     action:
+#       scene: scene.bedroom_warm_white
+#   - alias: Bedroom scene selector
+#     trigger:
+#       platform: state
+#       entity_id: input_select.bedroom_scene
+#     action:
+#       service: scene.turn_on
+#       data_template:
+#         entity_id: scene.{{trigger.to_state.state}}
 
 
-scene:
-  - name: Bedroom warm white
-    entities:
-      light.bedroom_top:
-        brightness: 255
-        color_mode: white
-        state: 'on'
-  - name: Bedroom FTP
-    entities:
-      light.bedroom_top:
-        brightness: 255
-        rgb_color:
-          - 255
-          - 0
-          - 0
-        state: 'on'
-      light.bedside:
-        brightness: 220
-        rgb_color:
-          - 0
-          - 0
-          - 255
-        state: 'on'
-  - name: Bedroom Anaglyph
-    entities:
-      light.bedside_north:
-        brightness: 255
-        rgb_color:
-          - 0
-          - 0
-          - 255
-        state: 'on'
-      light.bedside_south:
-        brightness: 255
-        rgb_color:
-          - 255
-          - 0
-          - 85
-        state: 'on'
-      light.bedside:
-        brightness: 255
-        rgb_color:
-          - 255
-          - 0
-          - 126
-        state: 'on'
-  - name: Bedroom Relax
-    entities:
-      light.bedroom_top:
-        brightness: 255
-        rgb_color:
-          - 0
-          - 255
-          - 23
-        state: 'on'
-      light.bedside:
-        brightness: 220
-        rgb_color:
-          - 255
-          - 0
-          - 126
-        state: 'on'
-  - name: Bedroom Mint
-    entities:
-      light.bedroom_top:
-        brightness: 255
-        rgb_color:
-          - 0
-          - 255
-          - 60
-        state: 'on'
-      light.bedside:
-        brightness: 220
-        rgb_color:
-          - 0
-          - 255
-          - 63
-        state: 'on'
+# scene:
+#   - name: Bedroom warm white
+#     entities:
+#       light.bedroom_top:
+#         brightness: 255
+#         color_mode: white
+#         state: 'on'
+#   - name: Bedroom FTP
+#     entities:
+#       light.bedroom_top:
+#         brightness: 255
+#         rgb_color:
+#           - 255
+#           - 0
+#           - 0
+#         state: 'on'
+#       light.bedside:
+#         brightness: 220
+#         rgb_color:
+#           - 0
+#           - 0
+#           - 255
+#         state: 'on'
+#   - name: Bedroom Anaglyph
+#     entities:
+#       light.bedside_north:
+#         brightness: 255
+#         rgb_color:
+#           - 0
+#           - 0
+#           - 255
+#         state: 'on'
+#       light.bedside_south:
+#         brightness: 255
+#         rgb_color:
+#           - 255
+#           - 0
+#           - 85
+#         state: 'on'
+#       light.bedside:
+#         brightness: 255
+#         rgb_color:
+#           - 255
+#           - 0
+#           - 126
+#         state: 'on'
+#   - name: Bedroom Relax
+#     entities:
+#       light.bedroom_top:
+#         brightness: 255
+#         rgb_color:
+#           - 0
+#           - 255
+#           - 23
+#         state: 'on'
+#       light.bedside:
+#         brightness: 220
+#         rgb_color:
+#           - 255
+#           - 0
+#           - 126
+#         state: 'on'
+#   - name: Bedroom Mint
+#     entities:
+#       light.bedroom_top:
+#         brightness: 255
+#         rgb_color:
+#           - 0
+#           - 255
+#           - 60
+#         state: 'on'
+#       light.bedside:
+#         brightness: 220
+#         rgb_color:
+#           - 0
+#           - 255
+#           - 63
+#         state: 'on'
 
-input_select:
-  bedroom_scene:
-    name: Bedroom scene
-    icon: mdi:sofa-outline
-    options:
-      - bedroom_warm_white
-      - bedroom_ftp
-      - bedroom_anaglyph
-      - bedroom_relax
-      - bedroom_mint
+# input_select:
+#   bedroom_scene:
+#     name: Bedroom scene
+#     icon: mdi:sofa-outline
+#     options:
+#       - bedroom_warm_white
+#       - bedroom_ftp
+#       - bedroom_anaglyph
+#       - bedroom_relax
+#       - bedroom_mint
 
-homeassistant:
-  customize:
-    light.bedroom_lights:
-      icon: mdi:desk
-      friendly_name: Спальня
+# homeassistant:
+#   customize:
+#     light.bedroom_lights:
+#       icon: mdi:desk
+#       friendly_name: Спальня

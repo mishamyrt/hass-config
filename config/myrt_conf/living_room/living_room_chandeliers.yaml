@@ -1,14 +1,14 @@
----
-light:
-  - platform: dohome_rgb
-    entities:
-      living_room_chandelier_1: '192.168.31.152'
-      living_room_chandelier_2: '192.168.31.234'
-      living_room_chandelier_3: '192.168.31.17'
-      living_room_near_bedroom: '192.168.31.140'
-  - platform: group
-    name: living_room_chandelier
-    entities:
-      - light.living_room_chandelier_1
-      - light.living_room_chandelier_2
-      - light.living_room_chandelier_3
+# ---
+# light:
+#   - platform: dohome_rgb
+#     entities:
+#       living_room_chandelier_1: '192.168.31.152'
+#       living_room_chandelier_2: '192.168.31.234'
+#       living_room_chandelier_3: '192.168.31.17'
+#       living_room_near_bedroom: '192.168.31.140'
+#   - platform: group
+#     name: living_room_chandelier
+#     entities:
+#       - light.living_room_chandelier_1
+#       - light.living_room_chandelier_2
+#       - light.living_room_chandelier_3

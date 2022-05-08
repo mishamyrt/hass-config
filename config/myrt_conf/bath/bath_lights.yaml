@@ -1,26 +1,26 @@
 ---
-light:
-  - platform: dohome_rgb
-    entities:
-      bath_mirror: '192.168.31.21'
-      bath_top_north: '192.168.31.11'
-      bath_top_south: '192.168.31.209'
-  - platform: group
-    name: bath
-    entities:
-      - light.bath_mirror
-      - light.bath_top_north
-      - light.bath_top_south
+# light:
+#   - platform: dohome_rgb
+#     entities:
+#       bath_mirror: '192.168.31.21'
+#       bath_top_north: '192.168.31.11'
+#       bath_top_south: '192.168.31.209'
+#   - platform: group
+#     name: bath
+#     entities:
+#       - light.bath_mirror
+#       - light.bath_top_north
+#       - light.bath_top_south
 
-automation:
-  - alias: Клик на кнопку
-    mode: single
-    trigger:
-      platform: state
-      entity_id: sensor.square_second_click
-      to: single
-    action:
-      service: light.toggle
-      target:
-        entity_id:
-          - light.bath
+# automation:
+#   - alias: Клик на кнопку
+#     mode: single
+#     trigger:
+#       platform: state
+#       entity_id: sensor.square_second_click
+#       to: single
+#     action:
+#       service: light.toggle
+#       target:
+#         entity_id:
+#           - light.bath

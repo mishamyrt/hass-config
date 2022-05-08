@@ -19,7 +19,6 @@ blueprint:
             domain: light
 
 trigger:
-  - entity_id: sensor.desk_vibration_action
     platform: state
     to: vibration
     attribute: action
